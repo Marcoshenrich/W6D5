@@ -1,3 +1,5 @@
+require 'date'
+
 class Cat < ApplicationRecord
     CAT_COLORS = ["brown", "tortuga", "white", "void","orange"]
 
@@ -11,7 +13,15 @@ class Cat < ApplicationRecord
             errors.add(:birth_date, "birth date cannot be in the future")
         end
     end
+
+    def age
+        now = Date.today
+        d = Date.parse(self.birth_date.to_s)
+        before = Date.civil(d.year, d.mon, d.day)
+        difference_in_days = (now - before).to_i
+        difference_in_days/365
+    end
     
 end
 
-# Cat.create(color: "orange", name: "moe", sex: "M", birth_date: "1/1/2010").save
+Cat.create(color: "orange", name: "moe", sex: "M", birth_date: "1/1/2010").save
