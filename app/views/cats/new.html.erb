@@ -1,0 +1,9 @@
+<h1>New cat</h1>
+<form action="<%= cats_url %>" method="POST">
+    <input type="text" name="cat[name]" placeholder="Cat's name">
+    <input type="date" name="cat[birth_date]" placeholder="Birth date">
+    <input type="text" name="cat[color]" placeholder="Cat's color">
+    <input type="text" name="cat[sex]" placeholder="Gender (M or F)" maxlenght="1">
+    <textarea name="cat[description]">Description of cat</textarea>
+    <button>Create cat</button>
+</form>
