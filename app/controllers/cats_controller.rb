@@ -29,7 +29,7 @@ class CatsController < ApplicationController
 #update
     def update
         @cat = Cat.find_by(id: params[:id])
-        if cat.update(cat_params)
+        if @cat.update(cat_params)
             redirect_to cat_url(@cat)
         else
             render json: @cat.errors.full_messages, status: 422

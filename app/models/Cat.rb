@@ -24,4 +24,4 @@ class Cat < ApplicationRecord
     
 end
 
-Cat.create(color: "orange", name: "moe", sex: "M", birth_date: "1/1/2010").save
+# Cat.create(color: "orange", name: "moe", sex: "M", birth_date: "1/1/2010").save

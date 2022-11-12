@@ -1,0 +1,18 @@
+<h1>Edit cat</h1>
+<form action="<%= cat_url(@cat) %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="text" name="cat[name]" placeholder="Cat's name" value="<%= @cat.name %>">
+    <input type="date" name="cat[birth_date]" placeholder="Birth date" value="<%= @cat.birth_date %>">
+    <select name="cat[color]">
+        <option disabled>Select color</option>
+        <option <% "selected" if @cat.color == "brown" %>>brown</option>
+        <option <% "selected" if @cat.color == "tortuga" %>>tortuga</option>
+        <option <% "selected" if @cat.color == "white" %>>white</option>
+        <option <% "selected" if @cat.color == "void" %>>void</option>
+        <option <% "selected" if @cat.color == "orange" %>>orange</option>
+    </select>
+    <input type="text" name="cat[sex]" placeholder="Gender (M or F)" maxlength="1" value="<%= @cat.sex %>">
+    <textarea name="cat[description]" placeholder="Description"><%= @cat.description || "" %></textarea>
+    <button>Create cat</button>
+
+</form>
