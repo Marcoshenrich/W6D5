@@ -5,4 +5,5 @@
     <li>Color: <%= @cat.color %></li>
     <li>Gender: <%= @cat.sex %></li>
     <li><%= @cat.description || "no description" %></li>
+    <a href="<%= edit_cat_url(@cat)%>">edit cat</a>
 </ul>

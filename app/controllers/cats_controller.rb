@@ -16,21 +16,21 @@ class CatsController < ApplicationController
         @cat = Cat.find_by(id: params[:id])
     end
 
-#create
-    def create
-        @cat = Cat.new(cat_params)
-        if @cat.save
-            redirect_to cat_url(@cat) # , status: 201
-        else
-            render json: @cat.errors.full_messages, status: 422
-        end
-    end
-
 #update
     def update
         @cat = Cat.find_by(id: params[:id])
         if @cat.update(cat_params)
             redirect_to cat_url(@cat)
+        else
+            render json: @cat.errors.full_messages, status: 422
+        end
+    end
+
+#create
+    def create
+        @cat = Cat.new(cat_params)
+        if @cat.save
+            redirect_to cat_url(@cat) # , status: 201
         else
             render json: @cat.errors.full_messages, status: 422
         end

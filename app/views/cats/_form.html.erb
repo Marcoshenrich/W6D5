@@ -1,0 +1,30 @@
+<% path = action == :new ? cats_url : cat_url(cat) %>
+<% submit = action == :new ? "create" : "update"%>
+
+
+
+
+
+<form action="<%= path %>" method="POST">
+    <% if action == "edit" %>
+     <input type="hidden" name="_method" value="PATCH">
+    <% end %>
+
+    <input type="text" name="cat[name]" placeholder="Cat's name" value="<%= @cat.name %>">
+    <input type="date" name="cat[birth_date]" placeholder="Birth date" value="<%= @cat.birth_date %>">
+    <select name="cat[color]">
+        <option disabled>Select color</option>
+        <option <% "selected" if @cat.color == "brown" %>>brown</option>
+        <option <% "selected" if @cat.color == "tortuga" %>>tortuga</option>
+        <option <% "selected" if @cat.color == "white" %>>white</option>
+        <option <% "selected" if @cat.color == "void" %>>void</option>
+        <option <% "selected" if @cat.color == "orange" %>>orange</option>
+    </select>
+    <input type="text" name="cat[sex]" placeholder="Gender (M or F)" maxlength="1" value="<%= @cat.sex %>">
+    <textarea name="cat[description]" placeholder="Description"><%= @cat.description || "" %></textarea>
+
+    <button><%= submit %></button>
+
+</form>
+
+    <a href= "<%= path %>">cancel</a>

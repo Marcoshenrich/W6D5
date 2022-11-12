@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "cats#index"
 
   resources :cats, except: [:destroy] 
+  
 end
