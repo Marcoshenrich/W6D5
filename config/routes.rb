@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root "cats#index"
 
   resources :cats, except: [:destroy] 
+
+  get '/delete/:id', to: 'cats#destroy', as: 'delete_cat'
   
 end

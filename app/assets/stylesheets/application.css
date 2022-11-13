@@ -14,6 +14,6 @@
  *= require_self
  */
 
- form input {
+ form label {
     display: block
  }
