@@ -8,5 +8,35 @@
     <% if @cat.description != "" || !@cat.description.nil? %>
         <li><%= @cat.description %></li>
     <% end %>
-    <a href="<%= edit_cat_url(@cat)%>">edit cat</a>
 </ul>
+<a href="<%= edit_cat_url(@cat)%>">edit cat</a>
+
+<h2>Rent Requests</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Start date</td>
+            <td>End date</td>
+            <td>Status</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @cat.rental_requests.empty? %>
+            <tr>
+                <td colspan="3">
+                    <%= @cat.name + " has no rent requests" %>
+                </td>
+            </tr>
+        <% else %>
+            <% @cat.rental_requests.order(:start_date).each do |crr| %>
+                <tr>
+                    <td><%= crr.start_date %></td>
+                    <td><%= crr.end_date %></td>
+                    <td><%= crr.status %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+
+<p><a href="<%= new_cat_cat_rental_requests_url(@cat) %>">rent <%= @cat.name %></a></p>

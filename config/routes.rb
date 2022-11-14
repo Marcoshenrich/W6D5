@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "cats#index"
 
-  resources :cats, except: [:destroy] 
+  resources :cats, except: [:destroy] do 
+    resource :cat_rental_requests, only: [:new]
+  end
 
   get '/delete/:id', to: 'cats#destroy', as: 'delete_cat'
+
+  resources :cat_rental_requests, only: [:new, :create]
   
 end

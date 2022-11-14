@@ -1,5 +1,4 @@
 class CatsController < ApplicationController
-    
 
 #index
     def index
